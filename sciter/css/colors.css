@@ -1,0 +1,39 @@
+.america {
+  background: #e8320f;
+}
+
+.subcontinent-of-america::before {
+  background: #e8320f;
+}
+
+.europe {
+  background: #005b98;
+}
+
+.subcontinent-of-europe::before {
+  background: #005b98;
+}
+
+.asia {
+  background: #fada6d;
+}
+
+.subcontinent-of-asia::before {
+  background: #fada6d;
+}
+
+.oceania {
+  background: #e58900;
+}
+
+.subcontinent-of-oceania::before {
+  background: #e58900;
+}
+
+.africa {
+  background: #327216;
+}
+
+.subcontinent-of-africa::before {
+  background: #327216;
+}

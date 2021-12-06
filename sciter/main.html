@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html window-icon="this://app/png/logo/32x32.png">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>13&amp;Gene</title>
+    <link href="this://app/css/index.css" rel="stylesheet">
+    <script src="this://app/js/index.js" type="module"></script>
+  </head>
+
+  <body>
+    <div #list-container>
+      <div #list-header>
+        <div #wheel>
+          <div #avatar title="Click to select a custom avatar" initials="??"></div>
+        </div>
+        <div .row>
+          <div><input #name value="Your Name" /></div>
+          <div>100%</div>
+        </div>
+      </div>
+      <div #list-body></div>
+    </div>
+    <div .col>
+      <div #input-container>
+        <label for="coords">
+          <a href="https://bga101.blogspot.com/2013/11/updated-eurogenes-k13-at-gedmatch.html" title="https://bga101.blogspot.com/2013/11/updated-eurogenes-k13-at-gedmatch.html">
+            <div>Eurogenes K13 Coordinates:</div>
+          </a>
+          <input title="Enter 13 numbers only, separated by commas" #coords novalue=""
+            value="" />
+        </label>
+        <button #calculate>Calculate</button>
+        <button #about>&nbsp;</button>
+      </div>
+      <div>Enter your Eurogenes K13 coordinates in the box above.</div>
+      <div>They should be 13 numbers separated by commas.</div>
+      <div>Click "Your Name" to edit.</div>
+      <div>Click the center circle to choose your avatar.</div>
+      <div>Click an ethnicity to remove and recalculate without it.</div>
+      <div>Click "Calculate" to restore all ethnicity possibilities.</div>
+    </div>
+  </body>
+
+</html>

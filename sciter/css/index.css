@@ -1,0 +1,353 @@
+@import 'this://app/css/colors.css';
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  background: red;
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  background-color: white;
+  background-image: url(this://app/png/map.png);
+  background-position: 50% 50%;
+  background-size: auto 100%;
+  margin: 0;
+  padding: 32dip;
+  min-width: 400dip;
+  min-height: min-content;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  flow: horizontal;
+  border-spacing: *;
+}
+
+body.loading::after {
+  margin: -32dip;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: min-content;
+  background: black;
+  color: white;
+  opacity: 0.5;
+  content: 'CALCULATING ...';
+  text-align: center;
+  vertical-align: middle;
+  z-index: 999;
+  font-size: 50dip;
+}
+
+.col {
+  flow: vertical;
+  margin-left: 32dip;
+  margin-right: 64dip;
+  width: *;
+  border-spacing: 16dip;
+}
+
+.col > div {
+  padding: 1em;
+  flow: horizontal;
+  white-space: nowrap;
+  width: *;
+  min-width: min-content;
+  min-height: min-content;
+  overflow-y: hidden;
+  box-shadow: 0 10dip 20dip 0 rgba(0, 0, 0, 0.15);
+  background: white;
+}
+
+#input-container {
+  /*padding: 1em;
+  flow: horizontal;
+  white-space: nowrap;
+  width: *;
+  min-width: min-content;
+  min-height: min-content;
+  overflow-y: hidden;
+  box-shadow: 0 10dip 20dip 0 rgba(0, 0, 0, 0.15);
+  background: white;*/
+}
+
+#input-container > * {
+  vertical-align: middle;
+}
+
+#input-container > button {
+  margin-left: 1em;
+}
+
+#list-container {
+  width: 400dip;
+  height: calc(100vh - 64dip);
+  min-height: min-content;
+  overflow-y: hidden;
+  box-shadow: 0 10dip 20dip 0 rgba(0, 0, 0, 0.15);
+  background: white;
+}
+
+#list-header {
+  flow: horizontal;
+  height: 130dip;
+  z-index: 3;
+}
+
+#wheel {
+  margin: 10dip;
+  height: 120dip;
+  width: 120dip;
+  border: 1dip solid #e3e5e6;
+  border-radius: 50%;
+  box-shadow: 0 0 8dip rgba(162, 164, 167, 0.5);
+  position: relative;
+  pointer-events: none;
+  background: white;
+
+  /*background-image: url('../img/flags/circle-512x512/England.png');
+  background-size: 100% 100%;
+  background-position: 50% 50%;*/
+}
+
+#avatar {
+  cursor: pointer;
+  font-size: 28dip;
+  line-height: calc(28dip + (28dip / 2));
+  vertical-align: middle;
+  color: #6b6b6b;
+  background-color: lightgrey;
+  position: absolute;
+  width: 35%;
+  height: 35%;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  /*--flag: url('../img/flags/circle-512x512/Russia.png');*/
+  /*background-image: var(--flag, url('this://app/img/flags/circle-512x512/England.png'));*/
+  background-position: 50% 50%;
+  background-size: 100% auto;
+  z-index: 1;
+  position: relative;
+}
+
+#avatar::after {
+  position: absolute;
+  content: attr(initials);
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  font-size: 24dip;
+}
+
+#wheel > svg {
+  background: transparent;
+}
+
+#list-header > .row {
+  font-weight: bold;
+  color: darkslategray;
+  font-size: 18dip;
+  margin-top: *;
+  width: *;
+  flow: horizontal;
+  border-spacing: *;
+  padding-right: 2em;
+  padding-bottom: 0em;
+  /*border: 1px solid red;*/
+  margin-top: *;
+}
+
+#list-header > .row > div {
+  /*border: 2px dashed green;*/
+  margin-top: *;
+}
+
+input#name {
+  margin-top: *;
+  padding-bottom: 0;
+  font-weight: bold;
+  color: darkslategray;
+  font-size: 18dip;
+  outline: none;
+  border: none;
+  width: 9em;
+  vertical-align: middle;
+}
+
+button#about {
+  foreground-size: 1.5em 1.5em;
+  foreground-position: 0.5em 50%;
+  stroke: white;
+  fill: blue;
+  foreground-image: url(path: M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-.001 5.75c.69 0 1.251.56 1.251 1.25s-.561 1.25-1.251 1.25-1.249-.56-1.249-1.25.559-1.25 1.249-1.25zm2.001 12.25h-4v-1c.484-.179 1-.201 1-.735v-4.467c0-.534-.516-.618-1-.797v-1h3v6.265c0 .535.517.558 1 .735v.999z);
+
+}
+
+.row > div {
+  width: max-content;
+}
+
+#list-body {
+  overflow-y: scroll;
+  height: *;
+  width: *;
+  flow: column;
+}
+
+#list-body > div:hover {
+  cursor: pointer;
+  color: red;
+  text-decoration: underline;
+}
+
+#list-body > div.continent:hover {
+  color: white !important;
+}
+
+#list-body > div > div {
+  hit-margin: -999px;
+  z-index: -1;
+}
+
+#list-body > div {
+  margin-top: -1dip;
+}
+
+.continent {
+  color: white;
+  font-weight: bold;
+  flow: horizontal;
+  border-spacing: *;
+  font-size: 16dip;
+  padding: 10dip 20dip;
+  z-index: 2;
+}
+
+.subcontinent {
+  color: darkslategray;
+  font-weight: bold;
+  flow: horizontal;
+  font-size: 16dip;
+  padding-right: 20dip;
+  padding-left: 40dip;
+  position: relative;
+  background: white;
+}
+
+.subcontinent > div {
+  border-bottom: 1dip solid lightgrey;
+  width: *;
+  height: *;
+  white-space: nowrap;
+  padding-top: 10dip;
+  padding-bottom: 10dip;
+}
+
+.subcontinent > div:first-child {
+  text-align: left;
+}
+
+.subcontinent > div:last-child {
+  text-align: right;
+}
+
+.subcontinent::before {
+  /** See colors.css for background-color **/
+  width: 10dip;
+  height: 10dip;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-24dip, -50%);
+}
+
+.country {
+  color: darkslategray;
+  flow: horizontal;
+  font-size: 16dip;
+  padding-right: 20dip;
+  padding-left: 40dip;
+  width: *;
+  margin-left: 0dip;
+  position: relative;
+  z-index: 0;
+}
+
+.country > div {
+  border-bottom: 1dip solid lightgrey;
+}
+
+.country > div {
+  width: *;
+  height: *;
+  white-space: nowrap;
+  padding-top: 10dip;
+  padding-bottom: 10dip;
+}
+
+.country > div:first-child {
+  text-align: left;
+  padding-left: 20dip;
+}
+
+.country > div:last-child {
+  text-align: right;
+  font-weight: bold;
+}
+
+.country::before {
+  width: 16dip;
+  height: 16dip;
+  position: absolute;
+  top: 49%;
+  transform: translate(-0, -50%);
+  background: var(--flag, #318ce7);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.region {
+  color: darkslategray;
+  flow: horizontal;
+  font-size: 14dip;
+  padding-right: 20dip;
+  padding-left: 0dip;
+  width: *;
+  margin-left: 40dip;
+  position: relative;
+  background: white;
+}
+
+.region > div {
+  border-bottom: 1dip solid lightgrey;
+}
+
+.region > div {
+  width: *;
+  height: *;
+  white-space: nowrap;
+  padding-top: 10dip;
+  padding-bottom: 10dip;
+}
+
+.region > div:first-child {
+  padding-left: 40dip;
+  text-align: left;
+}
+
+.region > div:last-child {
+  text-align: right;
+  font-weight: bold;
+  font-size: 16dip;
+}
